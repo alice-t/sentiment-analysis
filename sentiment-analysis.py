@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[37]:
-
-
 import re
 import json
 import sys
@@ -11,22 +5,13 @@ import preprocessor.api as p
 from preprocessor.api import clean, tokenize, parse, clean_file
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-
-# In[30]:
-
-
+#If writing in Jupyter Notebooks, use this format to install packages using pip directly
 #!{sys.executable} -m pip install vaderSentiment
-
-
-# In[66]:
 
 
 #clean file using preprocessor package
 input_file_name = "pawboamazon.txt"
 p.clean_file(input_file_name)
-
-
-# In[67]:
 
 
 #remove duplicate lines
@@ -38,10 +23,7 @@ with open("pawboamazon_clean_final.txt", "w") as output_file:
             output_file.write(each_line)
             lines_seen.add(each_line)
 
-
-# In[68]:
-
-
+            
 #count lines in original file
 orig_count = 0
 clean_count = 0
@@ -50,20 +32,15 @@ for each_line in open("clean_pawboamazon.txt", "r"):
 print(orig_count)
 
 
-# In[69]:
-
-
 #count lines in final cleaned file
 for each_line in open("pawboamazon_clean_final.txt", "r"):
     clean_count+=1
 print(clean_count)
 
 
-# In[70]:
-
-
 #sentiment analysis using VADER package
 analyser = SentimentIntensityAnalyzer()
+
 
 #counter for number of positive/neutral/negative statements
 pos_count = 0
@@ -106,9 +83,6 @@ print("Number of negative statements", neg_count)
 # ## The code below is to detect the amount of positive and negative words in the txt file. The corpus of positive and negative words (~6800 words) or 'Opinion Lexicon' can be found here:
 # ### https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html?ref=hackernoon.com
 
-# In[ ]:
-
-
 """
 # save the positive words into a list called p_list
 with open('positive.txt') as f:
@@ -130,9 +104,6 @@ with open('negative.txt') as f:
     
 print(p_txt)
 """
-
-
-# In[ ]:
 
 
 """
